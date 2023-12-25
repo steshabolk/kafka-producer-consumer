@@ -1,0 +1,39 @@
+@mixin highlight-text-shadow($highlight: $pink, $shadow: $red) {
+	text-shadow: 0.1rem 0.1rem 0.1rem $shadow, 0 0 0.5rem $highlight, 0 0 0.5rem $highlight;
+}
+
+@mixin letter-spacing($spacing, $margin-left: calc($spacing / 2)) {
+	letter-spacing: $spacing;
+	padding-left: $margin-left;
+}
+
+.col {
+	@include flex($flex-direction: row, $justify-content: center);
+	gap: 13rem;
+}
+.text-pink-red {
+	@include letter-spacing(0.2rem);
+	@include main-transition($duration: 0.2s);
+	@include highlight-text-shadow();
+	text-align: center;
+}
+.text-purple-blue {
+	@include main-transition($duration: 0.2s);
+	@include highlight-text-shadow($highlight: $purple, $shadow: $blue);
+}
+.text-purple-pink {
+	@include main-transition($duration: 0.2s);
+	@include highlight-text-shadow($highlight: $purple, $shadow: $pink);
+}
+.text-yellow-red {
+	@include letter-spacing(0.2rem);
+	@include main-transition($duration: 0.2s);
+	@include highlight-text-shadow($highlight: $orange, $shadow: $red);
+	text-align: center;
+	margin-top: 1rem;
+	margin-bottom: 0.5rem;
+}
+.upper {
+	text-transform: uppercase;
+	margin-bottom: 1rem;
+}

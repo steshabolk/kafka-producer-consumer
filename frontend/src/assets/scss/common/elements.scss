@@ -1,0 +1,27 @@
+// MAIN FLEX
+@mixin flex($flex-direction: false, $flex-wrap: false, $justify-content: false, $align-items: false, $align-content: false, $text-align: false) {
+	display: flex;
+	@if $flex-direction != false {
+		flex-direction: $flex-direction;
+	}
+	@if $flex-wrap != false {
+		flex-wrap: $flex-wrap;
+	}
+	@if $justify-content != false {
+		justify-content: $justify-content;
+	}
+	@if $align-items != false {
+		align-items: $align-items;
+	}
+	@if $align-content != false {
+		align-content: $align-content;
+	}
+	@if $text-align != false {
+		text-align: $text-align;
+	}
+}
+
+// // TRANSITION
+@mixin main-transition($property: all, $duration: 0.4s, $ease: ease-in-out) {
+	transition: $property $duration $ease;
+}

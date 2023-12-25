@@ -1,0 +1,41 @@
+// Font
+@font-face {
+	font-family: 'RobotoMono';
+	src: url('@/assets/fonts/RobotoMono-Regular.ttf');
+}
+$mainFont: 'RobotoMono', Helvetica, Arial, sans-serif;
+
+// Main Font
+$mainFontColor: #fafafa;
+// $mainFontSize: 1.5vw;
+$mainFontWeight: 400;
+$mainLineHeight: 1.5;
+
+// Screen Size
+$maxDesktopWidth: 1900px;
+$lgDesktopWidth: 1400px;
+$desktopWidth: 1280px;
+$smDesktopWidth: 1024px;
+$tabletWidth: 768px;
+$smTabletWidth: 640px;
+$phoneWidth: 480px;
+$smPhoneWidth: 320px;
+
+// Sections Height
+$headerHeight: 0vh;
+$footerHeight: 0vh;
+$contentHeight: calc(100vh - $headerHeight - $footerHeight);
+
+// Colors
+$dark-1: #1f2225;
+$dark-2: #343739;
+$light-1: #fafafa;
+$light-2: #ccc;
+$light-3: #a6a6a6;
+$purple: #743ad5;
+$pink: #d53a9d;
+$red: #fd1d1d;
+$yellow: #fcb045;
+$orange: #fa8a22;
+$blue: #3a3bb8;
+$cyan: #3ad5d4;
