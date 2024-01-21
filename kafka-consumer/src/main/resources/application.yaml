@@ -52,6 +52,11 @@ spring:
           topics: 8-10
           concurrency: 2
 
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
 kafka:
   topics:
     - name: 1-2
@@ -87,6 +92,8 @@ scheduler:
     - topic: 8-10
       key-min: 8
       key-max: 10
+  enable: true
+  pool-size: 100
 
 logging:
   config: classpath:logback.xml

@@ -1,4 +1,4 @@
-package com.project.producer.config;
+package com.project.consumer.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -25,5 +25,4 @@ public class SchedulerConfig {
         taskExecutor.setThreadNamePrefix("counter::worker-");
         return taskExecutor;
     }
-
 }

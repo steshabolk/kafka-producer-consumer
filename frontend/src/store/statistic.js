@@ -6,8 +6,8 @@ import { counter } from '@/services/requestBody'
 export default {
 	namespaced: true,
 	state: {
-		producer: counter(),
-		consumer: counter(),
+		producer: { ...counter },
+		consumer: { ...counter },
 		err: ''
 	},
 	actions: {
@@ -64,21 +64,29 @@ export default {
 			state.err = payload
 		},
 		setInitTopics(state, payload) {
+			state.producer.updatedAt = payload.updatedAt
 			state.producer.total = payload.total
-			state.producer.counter = payload.counter
+			state.producer.counter = { ...payload.counter }
+			state.consumer.updatedAt = payload.updatedAt
 			state.consumer.total = payload.total
-			state.consumer.counter = payload.counter
+			state.consumer.counter = { ...payload.counter }
 		},
 		setProducer(state, payload) {
-			state.producer.total = payload.total
-			for (const [key, val] of Object.entries(payload.counter)) {
-				state.producer.counter[key] = val
+			if (state.producer.updatedAt < payload.updatedAt) {
+				state.producer.updatedAt = payload.updatedAt
+				state.producer.total = payload.total
+				for (const [key, val] of Object.entries(payload.counter)) {
+					state.producer.counter[key] = val
+				}
 			}
 		},
 		setConsumer(state, payload) {
-			state.consumer.total = payload.total
-			for (const [key, val] of Object.entries(payload.counter)) {
-				state.consumer.counter[key] = val
+			if (state.consumer.updatedAt < payload.updatedAt) {
+				state.consumer.updatedAt = payload.updatedAt
+				state.consumer.total = payload.total
+				for (const [key, val] of Object.entries(payload.counter)) {
+					state.consumer.counter[key] = val
+				}
 			}
 		}
 	}

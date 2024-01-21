@@ -74,7 +74,8 @@ scheduler:
       value-min: 250_000
       value-max: 500_000
   enable: true
-  pool-size: 10
+  pool-size: 100
+
 
 logging:
   config: classpath:logback.xml

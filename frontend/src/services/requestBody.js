@@ -1,7 +1,6 @@
 // REQUEST BODY
-export function counter() {
-	return {
-		total: 0,
-		counter: {}
-	}
+export const counter = {
+	total: 0,
+	counter: {},
+	updatedAt: null
 }

@@ -39,7 +39,7 @@ export default {
 	components: {},
 	data() {
 		return {
-			poolingInterval: 2500
+			poolingInterval: 5000
 		}
 	},
 	methods: {

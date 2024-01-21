@@ -1,6 +1,9 @@
 package com.project.consumer.config;
 
+import com.project.consumer.listener.EventKafkaListener;
 import org.apache.kafka.clients.admin.NewTopic;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
@@ -18,12 +21,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.project.consumer.util.Helper.info;
 import static java.util.Objects.nonNull;
 
 @Configuration
 @EnableKafka
 public class KafkaConfig {
+
+    private final static Logger log = LoggerFactory.getLogger(EventKafkaListener.class);
 
     private final KafkaProps kafkaProps;
     private final KafkaTopicProps topicProperties;
@@ -90,7 +94,7 @@ public class KafkaConfig {
                 }
             }
         }
-        info(String.format("consumer=[%s], properties=[%s]", consumerName, properties));
+        log.debug("consumer=[{}], properties=[{}]", consumerName, properties);
         return new DefaultKafkaConsumerFactory<>(properties);
     }
 }

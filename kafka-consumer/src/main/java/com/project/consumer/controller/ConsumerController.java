@@ -1,6 +1,6 @@
 package com.project.consumer.controller;
 
-import com.project.consumer.service.InvocationCounterService;
+import com.project.consumer.service.CounterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,15 +12,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/consumer")
 public class ConsumerController {
 
-    private final InvocationCounterService invocationCounterService;
+    private final CounterService counterService;
 
     @Autowired
-    public ConsumerController(InvocationCounterService invocationCounterService) {
-        this.invocationCounterService = invocationCounterService;
+    public ConsumerController(CounterService counterService) {
+        this.counterService = counterService;
     }
 
     @GetMapping()
     public ResponseEntity<?> getCount() {
-        return new ResponseEntity<>(invocationCounterService.getCounter(), HttpStatus.OK);
+        return new ResponseEntity<>(counterService.getCounter(), HttpStatus.OK);
     }
 }
